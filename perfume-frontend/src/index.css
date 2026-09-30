@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  /* Detay sayfasındaki ince, editoryal başlıklar */
+  --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
+}
+
+:root {
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background: #f5f5f5;
+}
+
+/* Hero'daki "kaydırarak keşfedin" okunun hafif zıplaması */
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.scroll-hint {
+  animation: scroll-hint 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint {
+    animation: none;
+  }
+}
