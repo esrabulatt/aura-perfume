@@ -1,0 +1,19 @@
+# Bağımlılıklar
+node_modules/
+
+# Kalıcı veri: kullanıcılar (hash'lenmiş şifreler), siparişler ve JWT imza anahtarı.
+# Paylaşılmamalı; sunucu ilk açılışta kendisi oluşturur.
+data/
+
+# Loglar
+*.log
+
+# Ortam değişkenleri
+.env
+.env.*
+
+# Sistem ve editör dosyaları
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
