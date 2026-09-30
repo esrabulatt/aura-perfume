@@ -35,7 +35,7 @@ function LinkColumn({ title, links }: { title: string; links: FooterLink[] }) {
                 {label}
               </button>
             ) : (
-              // Henüz sayfası olmayan bağlantılar (sunum için yer tutucu)
+              // Henüz sayfası olmayan bağlantılar (yer tutucu)
               <span className={`${linkClass} cursor-default hover:text-neutral-600`}>{label}</span>
             )}
           </li>
@@ -177,7 +177,7 @@ export default function Footer({
       </svg>
 
       <div className="px-6 sm:px-10 py-5 flex flex-wrap items-center justify-between gap-4 text-[12px] text-neutral-700">
-        <p>© Aura Perfumé {year} · Sunum projesi</p>
+        <p>© Aura Perfumé {year} · Demo mağaza</p>
         <p className="inline-flex items-center gap-2.5 uppercase tracking-wide text-[13px]">
           <Globe className="w-5 h-5" strokeWidth={1.2} />
           Türkiye/Türkçe

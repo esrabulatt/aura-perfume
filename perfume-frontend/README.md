@@ -9,4 +9,4 @@ npm run build    # yayına hazır sürüm (dist/)
 npm run lint
 ```
 
-Kurulum, sunum akışı, test kartı ve proje yapısı için üst klasördeki [README.md](../README.md) dosyasına bakın.
+Kurulum, demo akışı, test kartı ve proje yapısı için üst klasördeki [README.md](../README.md) dosyasına bakın.

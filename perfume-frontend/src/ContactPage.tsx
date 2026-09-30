@@ -98,7 +98,7 @@ export default function ContactPage({ open, user, token, onClose, onGoHome, onOp
               <p className="mt-2 text-[15px] text-neutral-600">Talep numaranız</p>
               <p className="mt-1 text-[28px] font-semibold tracking-[0.12em] text-neutral-900 select-all">{ticket}</p>
               <p className="mt-4 text-[14px] leading-relaxed text-neutral-500">
-                Bu bir sunum projesi olduğu için mesajlara gerçek bir ekip yanıt vermez ve e-posta gönderilmez; mesajınız
+                Bu bir demo projesi olduğu için mesajlara gerçek bir ekip yanıt vermez ve e-posta gönderilmez; mesajınız
                 sunucuda kayıtlıdır.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">

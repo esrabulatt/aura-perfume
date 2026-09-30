@@ -24,7 +24,7 @@
 ---
 
 > [!NOTE]
-> Aura Perfumé bir **sunum / portföy projesidir**. Gerçek satış yapılmaz; ödeme, kargo ve iade adımları uygulamanın işleyişini göstermek için simüle edilir. Ödeme ekranında gerçek kart bilgisi girmeyin, aşağıdaki [test kartlarını](#test-kartları) kullanın.
+> Aura Perfumé bir **demo / portföy projesidir**. Gerçek satış yapılmaz; ödeme, kargo ve iade adımları uygulamanın işleyişini göstermek için simüle edilir. Ödeme ekranında gerçek kart bilgisi girmeyin, aşağıdaki [test kartlarını](#test-kartları) kullanın.
 
 Aura Perfumé; ürün kataloğu, kişiselleştirilmiş koku önerileri, üyelik, sepet, 3 adımlı ödeme ve sipariş sonrası süreçleri (takip, iptal, iade) uçtan uca kurgulayan tam yığın (full-stack) bir e-ticaret uygulamasıdır. Arayüzdeki **tüm veriler** projenin kendi REST API'sinden gelir; fiyat, stok ve sipariş tutarı gibi kritik hesaplar yalnızca sunucuda yapılır.
 
@@ -61,7 +61,7 @@ flowchart LR
     API <--> STORE
 ```
 
-- **Frontend** sunumdan ve kullanıcı etkileşiminden sorumludur; tüm istekler tek bir istemci katmanında (`src/api.ts`) toplanır.
+- **Frontend** arayüzden ve kullanıcı etkileşiminden sorumludur; tüm istekler tek bir istemci katmanında (`src/api.ts`) toplanır.
 - **Backend** iş kurallarının tek kaynağıdır: fiyat, stok, sipariş toplamı, durum geçişleri ve iade süresi sunucuda hesaplanır ve doğrulanır.
 - **Kalıcılık:** veriler `data/store.json` dosyasına atomik olarak (önce geçici dosyaya yazılıp sonra yeniden adlandırılarak) kaydedilir; yazma sırasında oluşan bir hata dosyayı bozmaz.
 

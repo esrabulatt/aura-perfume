@@ -6,7 +6,7 @@ export interface LegalDocument {
   slug: string;
   title: string;
   updatedAt: string;
-  /** Sunum projesi açıklaması */
+  /** Demo projesi açıklaması */
   notice?: string;
   sections: { heading: string; body: string[] }[];
 }

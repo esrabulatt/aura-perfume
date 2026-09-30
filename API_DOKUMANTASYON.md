@@ -821,7 +821,7 @@ Sipariş yanıtlarına ayrıca `statusLabel` ve tüm adımları içeren `steps: 
 
 - `GET /api/orders/:orderNumber` — yalnızca siparişi veren kullanıcı görebilir; başkası için `404`.
 - `GET /api/orders/track?orderNumber=ORD-4698&email=ornek@eposta.com` — **giriş gerektirmez**; numara ve siparişi veren hesabın e-postası birlikte eşleşmelidir (büyük/küçük harf duyarsız). Yanıtta ödeme bilgisi ve telefon **yer almaz**. Eşleşme yoksa `404`, eksik alan `422`.
-- `POST /api/orders/:orderNumber/advance` — **demo amaçlıdır.** Gerçek depo/kargo entegrasyonu olmadığı için durum kendiliğinden ilerlemez; sunumda bu uç noktayla bir sonraki duruma geçilir. Teslim edilmiş siparişte `409`.
+- `POST /api/orders/:orderNumber/advance` — **demo amaçlıdır.** Gerçek depo/kargo entegrasyonu olmadığı için durum kendiliğinden ilerlemez; demoda bu uç noktayla bir sonraki duruma geçilir. Teslim edilmiş siparişte `409`.
 
 
 #### İptal — `POST /api/orders/:orderNumber/cancel`
@@ -857,7 +857,7 @@ Sipariş yanıtlarındaki yardımcı alanlar: `cancellable`, `returnable`, `retu
 
 #### Yasal metinler — `GET /api/legal/:slug`
 
-`{ slug, title, updatedAt, notice, sections: [{ heading, body: string[] }] }` döner; bilinmeyen slug için `404`. Aura Perfumé bir **sunum projesidir** (gerçek satış yapılmaz); `notice` alanı bunu belirten açıklamadır. Metinler, gerçek bir mağazada bu sayfaların nasıl olacağını gösteren ve sitenin gerçekte işlediği verilere göre yazılmış örnek metinlerdir.
+`{ slug, title, updatedAt, notice, sections: [{ heading, body: string[] }] }` döner; bilinmeyen slug için `404`. Aura Perfumé bir **demo projesidir** (gerçek satış yapılmaz); `notice` alanı bunu belirten açıklamadır. Metinler, gerçek bir mağazada bu sayfaların nasıl olacağını gösteren ve sitenin gerçekte işlediği verilere göre yazılmış örnek metinlerdir.
 
 #### SSS — `GET /api/faq`
 
@@ -881,7 +881,7 @@ Sipariş yanıtlarındaki yardımcı alanlar: `cancellable`, `returnable`, `retu
 | `orderNumber` | isteğe bağlı, `ORD-1234` biçiminde |
 | `message` | zorunlu, 10–2000 karakter |
 
-Yanıt `201`: `{ message, data: { ticket: "TLP-JN47DN", userId, name, email, subject, subjectLabel, orderNumber, message, createdAt } }`. Hatalı alanlarda `400`. Mesajlar `data/store.json` içinde kalıcı olarak saklanır; sunum projesi olduğu için e-posta gönderilmez.
+Yanıt `201`: `{ message, data: { ticket: "TLP-JN47DN", userId, name, email, subject, subjectLabel, orderNumber, message, createdAt } }`. Hatalı alanlarda `400`. Mesajlar `data/store.json` içinde kalıcı olarak saklanır; demo projesi olduğu için e-posta gönderilmez.
 
 ### 5.18 `GET /api/perfumes/:id/reviews`
 
@@ -901,7 +901,7 @@ Yorumlar en yeniden eskiye sıralanır. Sorgu: `page` (varsayılan `1`), `limit`
 }
 ```
 
-> Başlangıç yorumları sunum amaçlı örnek verilerdir; parfümün kendi notalarından üretilir.
+> Başlangıç yorumları demo amaçlı örnek verilerdir; parfümün kendi notalarından üretilir.
 
 ### 5.19 `POST /api/perfumes/:id/reviews`
 

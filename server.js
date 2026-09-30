@@ -189,7 +189,7 @@ let perfumes = [
 let nextId = perfumes.length + 1;
 
 // ---------------------------------------------------------------------------
-// Örnek müşteri yorumları (sunum verisi; parfümün kendi notalarından üretilir)
+// Örnek müşteri yorumları (demo verisi; parfümün kendi notalarından üretilir)
 // ---------------------------------------------------------------------------
 
 const REVIEW_AUTHORS = [
@@ -1507,7 +1507,7 @@ router.delete('/favorites/:perfumeId', (req, res) => {
 
 // ---------------------------------------------------------------------------
 // İletişim formu (Bize ulaşın). Mesajlar kalıcı olarak kaydedilir; kullanıcıya talep numarası verilir.
-// Sunum projesi olduğu için mesajlara gerçek bir ekip yanıt vermez ve e-posta gönderilmez.
+// Demo projesi olduğu için mesajlara gerçek bir ekip yanıt vermez ve e-posta gönderilmez.
 // ---------------------------------------------------------------------------
 
 const contactMessages = [];
@@ -2026,7 +2026,7 @@ const FAQ = [
       },
       {
         q: 'Şifremi unuttum, ne yapmalıyım?',
-        a: 'Şifre sıfırlama özelliği bu sunum projesinde bulunmuyor. Yeni bir e-posta adresiyle tekrar üye olabilir veya "Bize ulaşın" sayfasından mesaj bırakabilirsiniz.'
+        a: 'Şifre sıfırlama özelliği bu demo projesinde bulunmuyor. Yeni bir e-posta adresiyle tekrar üye olabilir veya "Bize ulaşın" sayfasından mesaj bırakabilirsiniz.'
       }
     ]
   },
@@ -2036,7 +2036,7 @@ const FAQ = [
     items: [
       {
         q: 'Bu sitede gerçekten alışveriş yapabilir miyim?',
-        a: 'Hayır. Aura Perfumé bir sunum projesidir; sipariş, ödeme, kargo ve iade adımları uygulamanın işleyişini göstermek için simüle edilir. Gerçek ödeme alınmaz ve ürün gönderilmez. Ödeme ekranında gerçek kart bilgisi yerine test kartı (ör. 4242 4242 4242 4242) kullanın.'
+        a: 'Hayır. Aura Perfumé bir demo projesidir; sipariş, ödeme, kargo ve iade adımları uygulamanın işleyişini göstermek için simüle edilir. Gerçek ödeme alınmaz ve ürün gönderilmez. Ödeme ekranında gerçek kart bilgisi yerine test kartı (ör. 4242 4242 4242 4242) kullanın.'
       },
       {
         q: 'Bana uygun kokuyu nasıl bulabilirim?',
@@ -2071,14 +2071,14 @@ router.post('/orders/:orderNumber/returns/:code/cancel', (req, res) => {
 });
 
 // ---------------------------------------------------------------------------
-// Yasal metinler (footer > Yasal). Aura Perfumé bir SUNUM PROJESİDİR: gerçek satış yapılmaz,
+// Yasal metinler (footer > Yasal). Aura Perfumé bir DEMO PROJESİDİR: gerçek satış yapılmaz,
 // arkasında bir şirket yoktur. Metinler, gerçek bir mağazada nasıl olacağını gösteren örnek metinlerdir
 // ve sitenin gerçekte hangi verileri işlediğine göre yazılmıştır.
 // ---------------------------------------------------------------------------
 
 const LEGAL_UPDATED_AT = '2026-09-30';
 const DEMO_NOTICE =
-  'Aura Perfumé bir sunum projesidir. Sitede gerçek satış yapılmaz, ödeme alınmaz ve ürün gönderilmez. Aşağıdaki metin, gerçek bir mağazada bu sayfanın nasıl olacağını gösteren örnek bir metindir.';
+  'Aura Perfumé bir demo projesidir. Sitede gerçek satış yapılmaz, ödeme alınmaz ve ürün gönderilmez. Aşağıdaki metin, gerçek bir mağazada bu sayfanın nasıl olacağını gösteren örnek bir metindir.';
 
 const LEGAL_PAGES = [
   {
@@ -2088,7 +2088,7 @@ const LEGAL_PAGES = [
       {
         heading: 'Site sahibi',
         body: [
-          'Aura Perfumé, bir e-ticaret sitesinin nasıl çalıştığını göstermek için hazırlanmış bir sunum projesidir. Arkasında bir şirket bulunmaz; sitede gerçek satış yapılmaz, ödeme alınmaz ve ürün gönderilmez.',
+          'Aura Perfumé, bir e-ticaret sitesinin nasıl çalıştığını göstermek için hazırlanmış bir demo projesidir. Arkasında bir şirket bulunmaz; sitede gerçek satış yapılmaz, ödeme alınmaz ve ürün gönderilmez.',
           'Sipariş, ödeme, kargo ve iade adımları uygulamanın işleyişini göstermek için simüle edilir.'
         ]
       },
@@ -2120,7 +2120,7 @@ const LEGAL_PAGES = [
       {
         heading: 'Veri sorumlusu',
         body: [
-          `Bu bir sunum projesi olduğu için gerçek bir veri sorumlusu şirket yoktur. Gerçek bir mağazada, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") kapsamında veri sorumlusu mağazayı işleten şirket olurdu.`,
+          `Bu bir demo projesi olduğu için gerçek bir veri sorumlusu şirket yoktur. Gerçek bir mağazada, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") kapsamında veri sorumlusu mağazayı işleten şirket olurdu.`,
           'Demo sırasında girilen bilgiler yalnızca uygulamanın çalıştığı sunucuda tutulur ve hiçbir üçüncü tarafla paylaşılmaz. Lütfen gerçek kart bilgisi girmeyin; test kartları kullanın.'
         ]
       },
@@ -2252,7 +2252,7 @@ router.get('/returns/reasons', (req, res) => {
   res.json({ data: Object.entries(RETURN_REASONS).map(([value, label]) => ({ value, label })) });
 });
 
-// DEMO: siparişi bir sonraki duruma ilerletir (gerçek depo/kargo sistemi olmadığı için sunumda kullanılır).
+// DEMO: siparişi bir sonraki duruma ilerletir (gerçek depo/kargo sistemi olmadığı için demoda kullanılır).
 // Kargoya verildiğinde takip numarası atanır.
 router.post('/orders/:orderNumber/advance', (req, res) => {
   const { user } = requireUser(req);

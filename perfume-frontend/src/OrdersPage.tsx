@@ -126,7 +126,7 @@ function OrderDetail({
               onClick={onAdvance}
               disabled={advancing}
               className="mt-6 w-full h-11 rounded-md border border-dashed border-neutral-400 text-[13px] text-neutral-600 hover:border-neutral-900 hover:text-neutral-900 disabled:opacity-50 cursor-pointer"
-              title="Gerçek bir kargo sistemi olmadığı için sunumda durumu elle ilerletmek içindir"
+              title="Gerçek bir kargo sistemi olmadığı için demoda durumu elle ilerletmek içindir"
             >
               {advancing ? 'Güncelleniyor…' : 'Demo: durumu bir adım ilerlet'}
             </button>
