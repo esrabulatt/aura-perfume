@@ -128,7 +128,7 @@ Hatalı yanıtlar her zaman `error` alanında döner (bkz. [Hata Yönetimi](#6-h
 
 | Metot | Yol | Açıklama |
 |---|---|---|
-| `GET` | `/` | API bilgisi ve endpoint listesi |
+| `GET` | `/api` | API bilgisi ve endpoint listesi |
 | `GET` | `/api/health` | Sağlık kontrolü |
 | `GET` | `/api/meta` | İzin verilen enum değerleri |
 | `GET` | `/api/perfumes` | Parfümleri listele (filtre, arama, sıralama, sayfalama) |

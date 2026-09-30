@@ -24,7 +24,8 @@ import type {
 import type { FaqSection } from './FaqPage';
 import type { LegalDocument } from './LegalPage';
 
-const API_URL = 'http://localhost:3000/api';
+// Geliştirmede ayrı çalışan backend; canlıda aynı sunucu (/api). VITE_API_URL ile değiştirilebilir.
+const API_URL = import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? 'http://localhost:3000/api' : '/api');
 
 // Oturumlu bir istek 401 dönerse (token geçersiz / süresi dolmuş) App'e haber verilir:
 // App oturumu yerelde kapatır ve giriş penceresini açar.
@@ -43,7 +44,12 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     });
   } catch (err) {
     if (err instanceof DOMException && err.name === 'AbortError') throw err;
-    throw new Error('API sunucusuna ulaşılamadı. Backend çalışıyor mu? (http://localhost:3000)', { cause: err });
+    throw new Error(
+      import.meta.env.DEV
+        ? 'API sunucusuna ulaşılamadı. Backend çalışıyor mu? (http://localhost:3000)'
+        : 'Sunucuya ulaşılamadı. Bağlantınızı kontrol edip sayfayı yenileyin.',
+      { cause: err }
+    );
   }
 
   const body = await response.json().catch(() => null);

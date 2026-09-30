@@ -1,11 +1,12 @@
 {
   "name": "perfume-api",
   "version": "1.0.0",
-  "description": "Node.js ve Express ile yazılmış Parfüm REST API",
+  "description": "Aura Perfumé — Node.js / Express REST API ve React mağaza arayüzü",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "build": "npm ci --include=dev --prefix perfume-frontend && npm run build --prefix perfume-frontend"
   },
   "keywords": [
     "perfume",
@@ -17,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20.19"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

@@ -9,7 +9,9 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// CORS: CORS_ORIGIN verilirse yalnızca o adres(ler)e izin verilir (virgülle ayrılmış); verilmezse tümüne.
+const CORS_ORIGINS = process.env.CORS_ORIGIN?.split(',').map((o) => o.trim()).filter(Boolean);
+app.use(cors(CORS_ORIGINS?.length ? { origin: CORS_ORIGINS } : undefined));
 app.use(express.json());
 
 // Basit istek loglayıcı
@@ -454,7 +456,7 @@ function parseNumberQuery(value, name) {
 const router = express.Router();
 
 // Sağlık kontrolü
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({
     name: 'Perfume API',
     version: '1.0.0',
@@ -2274,6 +2276,22 @@ router.delete('/carts/:cartId', (req, res) => {
 });
 
 app.use('/api', router);
+
+// Canlıda frontend'in derlenmiş hali (perfume-frontend/dist) aynı sunucudan verilir: tek adres, CORS gerekmez.
+// Geliştirmede dist yoksa bu adım atlanır; site Vite ile ayrı çalışır.
+const FRONTEND_DIST = path.join(__dirname, 'perfume-frontend', 'dist');
+if (fs.existsSync(path.join(FRONTEND_DIST, 'index.html'))) {
+  // Adında hash olan derleme dosyaları uzun süre önbelleğe alınır; index.html her seferinde yeniden istenir
+  app.use(
+    express.static(FRONTEND_DIST, {
+      setHeaders(res, filePath) {
+        if (filePath.includes(`${path.sep}assets${path.sep}`)) res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        else if (filePath.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache');
+      }
+    })
+  );
+  app.get(/^(?!\/api\/).*/, (req, res) => res.sendFile(path.join(FRONTEND_DIST, 'index.html')));
+}
 
 // ---------------------------------------------------------------------------
 // Hata yönetimi
