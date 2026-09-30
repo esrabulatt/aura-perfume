@@ -11,6 +11,11 @@
 ![Node.js](https://img.shields.io/badge/Node.js-20.19%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-4-000000?style=flat-square&logo=express&logoColor=white)
 ![Auth](https://img.shields.io/badge/Auth-JWT_%2B_bcrypt-D63AFF?style=flat-square&logo=jsonwebtokens&logoColor=white)
+![Render](https://img.shields.io/badge/Canlı-Render-46E3B7?style=flat-square&logo=render&logoColor=white)
+
+### [🌐 Canlı demo → aura-perfume-7gqz.onrender.com](https://aura-perfume-7gqz.onrender.com)
+
+<sub>Ücretsiz sunucu 15 dk kullanılmazsa uyur; ilk açılış 30–60 sn sürebilir.</sub>
 
 [Özellikler](#-özellikler) · [Mimari](#-mimari) · [Kurulum](#-kurulum) · [Canlıya alma](#%EF%B8%8F-canlıya-alma) · [Demo akışı](#-demo-akışı) · [API](#-api) · [Güvenlik](#-güvenlik-notları)
 
