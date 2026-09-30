@@ -8,11 +8,11 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-20.19%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-4-000000?style=flat-square&logo=express&logoColor=white)
 ![Auth](https://img.shields.io/badge/Auth-JWT_%2B_bcrypt-D63AFF?style=flat-square&logo=jsonwebtokens&logoColor=white)
 
-[Özellikler](#-özellikler) · [Mimari](#-mimari) · [Kurulum](#-kurulum) · [Demo akışı](#-demo-akışı) · [API](#-api) · [Güvenlik](#-güvenlik-notları)
+[Özellikler](#-özellikler) · [Mimari](#-mimari) · [Kurulum](#-kurulum) · [Canlıya alma](#%EF%B8%8F-canlıya-alma) · [Demo akışı](#-demo-akışı) · [API](#-api) · [Güvenlik](#-güvenlik-notları)
 
 </div>
 
@@ -88,7 +88,7 @@ perfume-api/
 
 ## 🚀 Kurulum
 
-**Gereksinim:** Node.js 18 veya üzeri. İki sunucu ayrı terminallerde çalıştırılır.
+**Gereksinim:** Node.js 20.19 veya üzeri. İki sunucu ayrı terminallerde çalıştırılır.
 
 ```bash
 # 1) Backend — http://localhost:3000
@@ -109,6 +109,29 @@ Tarayıcıda `http://localhost:5173` adresini açın. API kapalıysa arayüzde "
 | `npm run dev` | Geliştirme sunucusu |
 | `npm run build` | Tip kontrolü + üretim derlemesi (`dist/`) |
 | `npm run lint` | ESLint |
+
+## ☁️ Canlıya alma
+
+Canlıda **tek bir Node.js servisi** hem API'yi (`/api/*`) hem de derlenmiş React sitesini (`perfume-frontend/dist`) sunar; bu sayede tek adres yeterlidir ve CORS ayarı gerekmez.
+
+```bash
+npm install
+npm run build    # frontend bağımlılıklarını kurar ve siteyi derler
+npm start        # http://localhost:3000 — site + API
+```
+
+Depodaki [`render.yaml`](render.yaml) ile [Render](https://render.com)'da tek adımda kurulabilir: **New + → Blueprint → bu depo**.
+
+| Ortam değişkeni | Açıklama |
+|---|---|
+| `PORT` | Sunucu portu (platform otomatik verir) |
+| `JWT_SECRET` | Oturum imza anahtarı; verilmezse `data/jwt-secret` dosyasında üretilir |
+| `DATA_DIR` | Kalıcı veri klasörü (varsayılan: `data/`) |
+| `CORS_ORIGIN` | Frontend ayrı bir adreste yayınlanırsa izin verilecek adres(ler), virgülle ayrılmış |
+| `VITE_API_URL` | *(derleme sırasında)* API başka bir adresteyse, ör. `https://api.ornek.com/api` |
+
+> [!IMPORTANT]
+> Render'ın ücretsiz planında servis 15 dakika kullanılmazsa uyku moduna geçer (ilk açılış ~30–60 sn) ve disk kalıcı değildir: sunucu yeniden başladığında üyeler ve siparişler sıfırlanır, katalog korunur.
 
 ## 🎬 Demo akışı
 
