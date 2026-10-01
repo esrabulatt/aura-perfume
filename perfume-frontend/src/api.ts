@@ -25,7 +25,7 @@ import type { FaqSection } from './FaqPage';
 import type { LegalDocument } from './LegalPage';
 
 // Geliştirmede ayrı çalışan backend; canlıda aynı sunucu (/api). VITE_API_URL ile değiştirilebilir.
-const API_URL = import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? 'http://localhost:3000/api' : '/api');
+const API_URL = import.meta.env.VITE_API_URL ?? 'https://aura-perfume-7gqz.onrender.com/api';
 
 // Oturumlu bir istek 401 dönerse (token geçersiz / süresi dolmuş) App'e haber verilir:
 // App oturumu yerelde kapatır ve giriş penceresini açar.
